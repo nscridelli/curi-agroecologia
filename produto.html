@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Produto — Curi Agroecologia</title>
+<meta name="description" content="Produtos apícolas artesanais da Mata Atlântica — Curi Agroecologia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=Meow+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="assets/brand/selo-curicaca.svg" type="image/svg+xml">
+<script src="js/store.js" defer></script>
+<script src="js/cart.js" defer></script>
+<script src="js/site.js" defer></script>
+</head>
+<body class="has-sticky">
+
+<main class="wrap">
+  <nav class="breadcrumb" aria-label="breadcrumb"><a href="loja.html">Loja</a> · <span id="bc-nome">Produto</span></nav>
+
+  <div class="product-page" id="product-page">
+    <!-- preenchido via JS a partir de store.js -->
+  </div>
+
+  <section class="sec" style="padding-top:10px">
+    <h2 class="h2" style="font-size:24px">Perguntas frequentes</h2>
+    <details class="faq"><summary>Como funciona a compra?</summary><p>Você monta o carrinho aqui no site e, ao finalizar, o pedido chega organizado no nosso WhatsApp — itens, endereço e frete. Confirmamos tudo com você e o pagamento é por Pix. Simples assim.</p></details>
+    <details class="faq"><summary>Meu mel cristalizou. E agora?</summary><p>Cristalizar é sinal de mel puro e cru! Para voltar ao estado líquido, deixe o pote em banho-maria morno (até 40°C). Evite micro-ondas — o calor alto destrói enzimas e aromas.</p></details>
+    <details class="faq"><summary>Qual o prazo de envio?</summary><p>Postamos via Correios em até 3 dias úteis após a confirmação do pagamento. O prazo de entrega varia conforme a região — confirmamos a estimativa no WhatsApp.</p></details>
+    <details class="faq"><summary>E se o produto chegar danificado?</summary><p>Nossos potes de vidro viajam com embalagem reforçada. Se mesmo assim algo chegar danificado, mande uma foto pelo WhatsApp em até 7 dias que a gente resolve — trocamos ou devolvemos.</p></details>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <h2 class="h2" style="font-size:24px">Quem leva, leva também…</h2>
+    <div class="grid-4" id="cross-sell"></div>
+  </section>
+</main>
+
+<div class="sticky-buy" id="sticky-buy" style="display:none">
+  <span class="price" id="sticky-price"></span>
+  <button class="btn btn-primary" id="sticky-add">Adicionar ao carrinho</button>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const slug = new URLSearchParams(location.search).get("p") || "mel-450";
+  const p = PRODUTOS.find((x) => x.slug === slug) || PRODUTOS[0];
+
+  document.title = p.nome + " — Curi Agroecologia";
+  document.getElementById("bc-nome").textContent = p.nome;
+
+  const ficha = Object.entries(p.ficha).map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("");
+
+  document.getElementById("product-page").innerHTML = `
+    <div class="product-gallery">
+      <img src="${p.img}" alt="${p.nome}">
+    </div>
+    <div class="product-info">
+      <h1>${p.nome}</h1>
+      <span class="price">${brl(p.preco)}</span>
+      <span class="muted" style="margin-left:8px;font-size:14px">à vista no Pix</span>
+      <p class="desc">${p.descricao}</p>
+      ${p.seloArte ? '<span class="selo-arte">🐝 Selo Arte — produção artesanal registrada</span>' : ""}
+      <div class="ficha">
+        <h3>Ficha de origem</h3>
+        <dl>${ficha}</dl>
+      </div>
+      <div class="buy-bar">
+        <div class="qty-stepper">
+          <button id="q-menos" aria-label="Diminuir">–</button>
+          <span id="q-val">1</span>
+          <button id="q-mais" aria-label="Aumentar">+</button>
+        </div>
+        <button class="btn btn-primary" id="btn-add" style="flex:1;min-width:200px">Adicionar ao carrinho</button>
+      </div>
+      <p class="muted mt-1" style="font-size:13px">Frete para todo o Brasil — calculado no carrinho pelo seu CEP e confirmado no WhatsApp.</p>
+    </div>`;
+
+  let qty = 1;
+  const qv = document.getElementById("q-val");
+  document.getElementById("q-menos").addEventListener("click", () => { qty = Math.max(1, qty - 1); qv.textContent = qty; });
+  document.getElementById("q-mais").addEventListener("click", () => { qty += 1; qv.textContent = qty; });
+
+  const add = () => {
+    Cart.add(p.slug, qty);
+    toast(`${qty}× ${p.nome} no carrinho · <a href="carrinho.html">fechar pedido</a>`);
+    qty = 1; qv.textContent = 1;
+  };
+  document.getElementById("btn-add").addEventListener("click", add);
+
+  const sticky = document.getElementById("sticky-buy");
+  sticky.style.display = "";
+  document.getElementById("sticky-price").textContent = brl(p.preco);
+  document.getElementById("sticky-add").addEventListener("click", add);
+
+  document.getElementById("cross-sell").innerHTML =
+    PRODUTOS.filter((x) => x.slug !== p.slug).map(productCard).join("");
+});
+</script>
+
+</body>
+</html>

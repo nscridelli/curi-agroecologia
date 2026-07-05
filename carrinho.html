@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carrinho — Curi Agroecologia</title>
+<meta name="description" content="Finalize seu pedido: enviamos tudo organizado para o WhatsApp da Curi e você paga por Pix.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=Meow+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="assets/brand/selo-curicaca.svg" type="image/svg+xml">
+<script src="js/store.js" defer></script>
+<script src="js/cart.js" defer></script>
+<script src="js/site.js" defer></script>
+</head>
+<body>
+
+<main class="wrap">
+  <section class="sec" style="padding-bottom:16px">
+    <span class="tag">seu pedido</span>
+    <h2 class="h2">Carrinho</h2>
+    <p class="lead">Aqui não tem checkout complicado: você confere o pedido, preenche a entrega e a gente finaliza juntos no WhatsApp — pagamento por Pix.</p>
+  </section>
+
+  <div style="display:grid;gap:26px;grid-template-columns:1fr;align-items:start" class="cart-layout">
+    <div id="cart-items"></div>
+
+    <div id="checkout-area">
+      <h3 class="serif" style="font-size:22px;color:var(--verde-curi);margin-bottom:14px">Dados de entrega</h3>
+      <div class="form-grid">
+        <label class="field full">Nome completo
+          <input id="f-nome" type="text" autocomplete="name" placeholder="Quem recebe o pedido">
+        </label>
+        <label class="field">CEP <span class="hint">(preenche o endereço)</span>
+          <input id="f-cep" type="text" inputmode="numeric" autocomplete="postal-code" placeholder="00000-000">
+        </label>
+        <label class="field">Estado
+          <select id="f-uf" autocomplete="address-level1">
+            <option value="">UF</option>
+            <option>AC</option><option>AL</option><option>AP</option><option>AM</option><option>BA</option><option>CE</option><option>DF</option><option>ES</option><option>GO</option><option>MA</option><option>MT</option><option>MS</option><option>MG</option><option>PA</option><option>PB</option><option>PR</option><option>PE</option><option>PI</option><option>RJ</option><option>RN</option><option>RS</option><option>RO</option><option>RR</option><option>SC</option><option>SP</option><option>SE</option><option>TO</option>
+          </select>
+        </label>
+        <label class="field full">Endereço
+          <input id="f-endereco" type="text" autocomplete="street-address" placeholder="Rua, avenida, estrada…">
+        </label>
+        <label class="field">Número
+          <input id="f-numero" type="text" placeholder="nº">
+        </label>
+        <label class="field">Complemento <span class="hint">(opcional)</span>
+          <input id="f-complemento" type="text" placeholder="apto, bloco…">
+        </label>
+        <label class="field">Bairro
+          <input id="f-bairro" type="text" autocomplete="address-level3" placeholder="Bairro">
+        </label>
+        <label class="field">Cidade
+          <input id="f-cidade" type="text" autocomplete="address-level2" placeholder="Cidade">
+        </label>
+        <label class="field full">Observações <span class="hint">(opcional)</span>
+          <textarea id="f-obs" rows="2" placeholder="Ponto de referência, presente, recado…"></textarea>
+        </label>
+      </div>
+
+      <div class="summary mt-2">
+        <div class="row"><span>Subtotal</span><b id="sum-subtotal">R$ 0,00</b></div>
+        <div class="row"><span>Frete estimado</span><b id="sum-frete">informe o CEP</b></div>
+        <div class="row total"><span>Total</span><span id="sum-total">R$ 0,00</span></div>
+        <p class="note" id="frete-obs"></p>
+      </div>
+
+      <button class="btn btn-whatsapp btn-block mt-2" id="btn-enviar-pedido" style="font-size:16px;padding:15px">
+        Enviar pedido pelo WhatsApp
+      </button>
+      <p class="muted center mt-1" style="font-size:12px">Abre o WhatsApp com seu pedido pronto — nada é cobrado pelo site.</p>
+    </div>
+  </div>
+
+  <div style="height:44px"></div>
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("frete-obs").textContent = CURI.freteObs;
+});
+</script>
+<style>
+@media (min-width: 900px) { .cart-layout { grid-template-columns: 1.1fr 1fr !important; } }
+</style>
+
+</body>
+</html>
