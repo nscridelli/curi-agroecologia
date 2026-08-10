@@ -1,4 +1,4 @@
-/* Curi Agroecologia — infraestrutura das páginas
+/* Curi Biodiversidade — infraestrutura das páginas
    Header, menu, rodapé, botão de WhatsApp e utilidades compartilhadas. */
 
 const ICONS = {
@@ -46,7 +46,7 @@ function renderHeader() {
   el.className = "site-header";
   el.innerHTML = `
     <div class="bar">
-      <a class="logo" href="index.html">Curi <small>agroecologia</small></a>
+      <a class="logo" href="index.html">Curi <small>biodiversidade</small></a>
       <nav class="main-nav" aria-label="principal">${nav}</nav>
       <div class="header-actions">
         <a class="icon-btn" href="carrinho.html" aria-label="Carrinho">
@@ -90,7 +90,7 @@ function renderFooter() {
           <h4>Fale com a gente</h4>
           <nav>
             <a href="${waLink("Olá! Vim pelo site da Curi.")}" target="_blank" rel="noopener">WhatsApp · (47) 9 8897 1715</a>
-            <a href="${CURI.instagram}" target="_blank" rel="noopener">@curi.agroecologia</a>
+            <a href="${CURI.instagram}" target="_blank" rel="noopener">@curi.biodiversidade</a>
             <a href="${CURI.airbnb}?utm_source=site&utm_medium=footer" target="_blank" rel="noopener">Hospede-se · Airbnb</a>
             <a href="mailto:${CURI.email}">${CURI.email}</a>
           </nav>
@@ -102,7 +102,7 @@ function renderFooter() {
         </div>
       </div>
       <div class="fine">
-        <span>© Curi Agroecologia — Mata Atlântica, Joinville/SC</span>
+        <span>© Curi Biodiversidade — Mata Atlântica, Joinville/SC</span>
         <a href="politica-de-privacidade.html">Política de privacidade</a>
       </div>
     </div>`;

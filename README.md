@@ -1,6 +1,6 @@
-# Site Curi Agroecologia
+# Site Curi Biodiversidade
 
-Site institucional + vitrine de produtos da Curi Agroecologia (Mata Atlântica, Joinville/SC).
+Site institucional + vitrine de produtos da Curi Biodiversidade (Mata Atlântica, Joinville/SC).
 Estático, sem backend: o carrinho organiza o pedido e envia tudo pronto para o WhatsApp da Curi.
 
 ## Como editar

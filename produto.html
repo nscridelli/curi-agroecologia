@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Produto — Curi Agroecologia</title>
-<meta name="description" content="Produtos apícolas artesanais da Mata Atlântica — Curi Agroecologia.">
+<title>Produto — Curi Biodiversidade</title>
+<meta name="description" content="Produtos apícolas artesanais da Mata Atlântica — Curi Biodiversidade.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=DM+Serif+Display:ital@0;1&family=Meow+Script&display=swap" rel="stylesheet">
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const slug = new URLSearchParams(location.search).get("p") || "mel-450";
   const p = PRODUTOS.find((x) => x.slug === slug) || PRODUTOS[0];
 
-  document.title = p.nome + " — Curi Agroecologia";
+  document.title = p.nome + " — Curi Biodiversidade";
   document.getElementById("bc-nome").textContent = p.nome;
 
   const ficha = Object.entries(p.ficha).map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("");

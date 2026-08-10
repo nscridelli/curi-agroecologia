@@ -1,4 +1,4 @@
-/* Curi Agroecologia — carrinho e pedido via WhatsApp
+/* Curi Biodiversidade — carrinho e pedido via WhatsApp
    O site não processa pagamento: organiza o pedido (itens, endereço,
    frete estimado, total) e envia tudo pronto para o WhatsApp da Curi. */
 
@@ -142,7 +142,7 @@ function montarMensagem() {
   const frete = freteEstimado(uf);
 
   const linhas = [];
-  linhas.push("🍯 *Novo pedido pelo site — Curi Agroecologia*");
+  linhas.push("🍯 *Novo pedido pelo site — Curi Biodiversidade*");
   linhas.push("");
   linhas.push("*Itens:*");
   items.forEach((i) => {

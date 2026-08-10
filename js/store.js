@@ -1,5 +1,5 @@
 /* ============================================================
-   Curi Agroecologia — CONFIGURAÇÃO DA LOJA
+   Curi Biodiversidade — CONFIGURAÇÃO DA LOJA
    Este é o único arquivo que precisa ser editado no dia a dia:
    preços, produtos, frete e número do WhatsApp ficam aqui.
    ============================================================ */
@@ -8,7 +8,7 @@ const CURI = {
   // WhatsApp que recebe os pedidos (só números, com DDI 55)
   whatsapp: "5547988971715",
 
-  instagram: "https://www.instagram.com/curi.agroecologia/",
+  instagram: "https://www.instagram.com/curi.biodiversidade/",
   airbnb: "https://www.airbnb.com.br/rooms/13135898",
   email: "curi.agroecologia@gmail.com",
 
