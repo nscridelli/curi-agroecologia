@@ -61,10 +61,32 @@ const Cart = {
 
 /* ---------- Página do carrinho / checkout ---------- */
 
+// Peso embalado do pedido, em kg (produtos + caixa e proteção).
+function pesoCarrinho() {
+  const produtos = Cart.items().reduce((s, i) => s + (i.peso || 0) * i.qty, 0);
+  return produtos > 0 ? produtos + CURI.pesoEmbalagem : 0;
+}
+
+// Faixa cobrada pelos Correios: arredonda o peso para cima, mínimo 1 kg.
+function faixaPeso(peso) {
+  return Math.max(1, Math.ceil(peso));
+}
+
+// Frete = base do estado (1ª faixa) + acréscimo por quilo extra.
 function freteEstimado(uf) {
   if (!uf) return null;
-  const v = CURI.frete[uf.toUpperCase()];
-  return typeof v === "number" ? v : null;
+  const base = CURI.frete[uf.toUpperCase()];
+  if (typeof base !== "number") return null;
+
+  const peso = pesoCarrinho();
+  if (peso <= 0) return null;
+
+  const kg = faixaPeso(peso);
+  return Math.round(base + (kg - 1) * base * CURI.adicionalPorKg);
+}
+
+function pesoFormatado(kg) {
+  return kg.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " kg";
 }
 
 function renderCartPage() {
@@ -112,8 +134,11 @@ function updateSummary() {
   const uf = (document.getElementById("f-uf") || {}).value || "";
   const frete = freteEstimado(uf);
 
+  const peso = pesoCarrinho();
+
   const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
   set("sum-subtotal", brl(sub));
+  set("sum-peso", peso > 0 ? `${pesoFormatado(peso)} · faixa de ${faixaPeso(peso)} kg` : "—");
   set("sum-frete", frete === null ? "informe o CEP" : `~ ${brl(frete)}`);
   set("sum-total", frete === null ? brl(sub) + " + frete" : `~ ${brl(sub + frete)}`);
 }
@@ -150,6 +175,8 @@ function montarMensagem() {
   });
   linhas.push("");
   linhas.push(`Subtotal: ${brl(sub)}`);
+  const peso = pesoCarrinho();
+  linhas.push(`Peso estimado: ${pesoFormatado(peso)} (faixa de ${faixaPeso(peso)} kg)`);
   linhas.push(frete === null
     ? "Frete: a calcular"
     : `Frete estimado (${uf.toUpperCase()}): ${brl(frete)}`);
