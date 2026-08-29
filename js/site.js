@@ -77,7 +77,7 @@ function renderFooter() {
       <div class="cols">
         <div>
           <a class="logo" href="index.html">Curi</a>
-          <p>Promovendo conexão com a natureza através de experiências únicas. Mel, própolis e observação de aves na Mata Atlântica — Estrada Rio do Júlio, região de Joinville/SC.</p>
+          <p>Promovendo conexão com a natureza através de experiências únicas. Mel, própolis e observação de aves na Mata Atlântica — Estrada Rio do Júlio, município de Joinville/SC.</p>
           <img class="selo" src="assets/brand/selo-curicaca.svg" alt="Selo Curi — curicaca">
         </div>
         <div>

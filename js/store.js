@@ -29,7 +29,7 @@ const PRODUTOS = [
   {
     slug: "mel-450",
     nome: "Mel silvestre 450g",
-    preco: 32.00,
+    preco: 34.00,
     img: "assets/img/produto-mel-450.jpg",
     resumo: "Mel multifloral da Mata Atlântica, safra única, envasado à mão.",
     descricao: "Nosso mel multifloral é produzido a partir do néctar de espécies nativas da Mata Atlântica. Cada safra é única, com sabor e aroma que variam conforme as floradas e o clima do período. Cru, sem pasteurização — o pólen e a própolis ficam no mel.",
@@ -47,7 +47,7 @@ const PRODUTOS = [
   {
     slug: "mel-750",
     nome: "Mel silvestre 750g",
-    preco: 40.00,
+    preco: 42.00,
     img: "assets/img/produto-mel-750.jpg",
     resumo: "O mesmo mel da floresta viva, no pote família.",
     descricao: "Nosso mel multifloral é produzido a partir do néctar de espécies nativas da Mata Atlântica. Cada safra é única, com sabor e aroma que variam conforme as floradas e o clima do período. O pote de 750g rende mais e é o preferido de quem já conhece.",
