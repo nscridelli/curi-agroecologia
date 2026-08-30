@@ -72,9 +72,9 @@ img{max-width:100%;display:block}
 .periodo button.ativo{background:var(--verde-curi);color:var(--creme)}
 
 /* ---------- cards ---------- */
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:12px;margin-bottom:22px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(142px,1fr));gap:12px;margin-bottom:22px}
 .card-kpi{background:#fff;border:1px solid var(--linha);border-radius:var(--radius);padding:15px 17px}
-.card-kpi .n{font-family:var(--display);font-size:32px;color:var(--verde-curi);line-height:1.1}
+.card-kpi .n{font-family:var(--display);font-size:29px;color:var(--verde-curi);line-height:1.1}
 .card-kpi .r{font-size:12px;color:#8a7767;margin-top:3px}
 .card-kpi.destaque{background:var(--verde-curi);border-color:var(--verde-curi)}
 .card-kpi.destaque .n{color:var(--verde-broto)}
@@ -147,3 +147,16 @@ tbody tr:last-child td{border-bottom:none}
 .aviso.on{opacity:1;transform:translateX(-50%) translateY(0)}
 .aviso.ruim{background:var(--vermelho)}
 .carregando{text-align:center;padding:40px;color:#8a7767;font-size:14px}
+
+/* ---------- ajustes de celular ---------- */
+@media(max-width:620px){
+  .topo-in{padding:10px 14px;gap:10px}
+  .abas{order:3;width:100%;gap:2px}
+  .abas button{padding:7px 11px;font-size:13px;flex:1}
+  .quem{display:none}
+  .conteudo{padding:20px 14px 60px}
+  .secao-topo h2{font-size:24px}
+  .bloco{padding:15px 14px}
+  .item{padding:15px 14px}
+  .card-kpi{padding:13px 14px}
+}
