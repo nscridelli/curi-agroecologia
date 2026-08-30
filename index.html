@@ -20,6 +20,9 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="icon" href="assets/brand/selo-curicaca.svg" type="image/svg+xml">
 <script src="js/store.js" defer></script>
+<script src="js/supabase-config.js" defer></script>
+<script src="js/analytics.js" defer></script>
+<script src="js/conteudo.js" defer></script>
 <script src="js/cart.js" defer></script>
 <script src="js/site.js" defer></script>
 <script type="application/ld+json">
@@ -43,9 +46,9 @@
   <!-- Hero -->
   <section class="hero" style="background-image:url('assets/img/home-hero.jpg')">
     <div class="hero-content">
-      <span class="script">desde 2015</span>
-      <h1>Promovendo conexão com a natureza</h1>
-      <p>Mel, própolis e experiências na Mata Atlântica</p>
+      <span class="script" data-texto="home_script">desde 2015</span>
+      <h1 data-texto="home_titulo">Promovendo conexão com a natureza</h1>
+      <p data-texto="home_subtitulo">Mel, própolis e experiências na Mata Atlântica</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="loja.html" style="border-color:var(--creme)">Conheça a loja</a>
         <a class="btn btn-light" href="experiencias.html">Visite a propriedade</a>
@@ -59,7 +62,7 @@
       <img src="assets/img/alexandre-avatar.jpg" alt="Alexandre Reichel segurando um favo de mel" loading="lazy"
            style="min-width:84px;width:84px;height:84px;border-radius:50%;object-fit:cover">
       <div>
-        <p style="margin-bottom:8px;color:#4a3c30">Há mais de uma década, o agrônomo Alexandre Reichel cuida de 800 hectares de Mata Atlântica no município de Joinville — regenerando floresta, criando abelhas e abrindo a porteira para quem quer reconectar.</p>
+        <p data-texto="home_quem_somos" style="margin-bottom:8px;color:#4a3c30">Há mais de uma década, o agrônomo Alexandre Reichel cuida de 800 hectares de Mata Atlântica no município de Joinville — regenerando floresta, criando abelhas e abrindo a porteira para quem quer reconectar.</p>
         <a class="link" href="sobre.html">Nossa história <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
@@ -138,8 +141,8 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.2 4.8a6 6 0 0 0-8.5 0L5 11.5V19h7.5l6.7-6.7a6 6 0 0 0 0-8.5z"/><path d="M16 8L4 20M17.5 13H12"/></svg>
         </div>
         <div style="flex:1;min-width:240px">
-          <h3 class="serif" style="font-size:22px;color:var(--verde-curi);margin-bottom:4px">Tangará-dançarino</h3>
-          <p style="font-size:14px;color:#5a4a3c;margin-bottom:8px">Uma das 248 espécies registradas na propriedade. Saiba quando e como observar.</p>
+          <h3 class="serif" style="font-size:22px;color:var(--verde-curi);margin-bottom:4px" data-texto="home_ave_nome">Tangará-dançarino</h3>
+          <p data-texto="home_ave_texto" style="font-size:14px;color:#5a4a3c;margin-bottom:8px">Uma das 248 espécies registradas na propriedade. Saiba quando e como observar.</p>
           <a class="link link-azul" href="observacao-de-aves.html">Observação de aves <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
@@ -150,7 +153,7 @@
   <section class="quote-block">
     <div class="wrap">
       <span style="color:var(--verde-broto);font-size:26px">“</span>
-      <p class="serif">O som da cidade deu lugar ao canto dos pássaros. Voltamos diferentes.</p>
+      <p class="serif" data-texto="home_depoimento">O som da cidade deu lugar ao canto dos pássaros. Voltamos diferentes.</p>
       <p class="who">— hóspede no Airbnb · <span class="stars">★★★★★</span></p>
       <div style="display:flex;gap:10px;justify-content:center;margin-top:20px">
         <img src="assets/img/home-galeria-01.jpg" alt="Sala e varanda da casa" style="width:88px;height:88px;object-fit:cover;border-radius:10px" loading="lazy">

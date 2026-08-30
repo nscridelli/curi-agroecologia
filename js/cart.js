@@ -19,6 +19,7 @@ const Cart = {
     const cart = this.read();
     cart[slug] = (cart[slug] || 0) + qty;
     this.write(cart);
+    if (typeof Analytics !== "undefined") Analytics.registrar("add_carrinho", { produto: slug, itens: qty });
   },
 
   setQty(slug, qty) {
@@ -209,8 +210,13 @@ function validarCheckout() {
   return ok;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  try { await conteudoPronto; } catch {}
   renderCartPage();
+
+  if (document.getElementById("cart-items") && Cart.count() > 0 && typeof Analytics !== "undefined") {
+    Analytics.registrar("abriu_carrinho", { itens: Cart.count(), valor: Cart.subtotal() });
+  }
 
   document.body.addEventListener("click", (e) => {
     const q = e.target.closest("[data-qty]");
@@ -245,6 +251,16 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!validarCheckout()) {
         toast("Preencha os campos destacados para a entrega.");
         return;
+      }
+      const uf = (document.getElementById("f-uf") || {}).value || null;
+      const frete = freteEstimado(uf);
+      if (typeof Analytics !== "undefined") {
+        Analytics.registrar("pedido_whatsapp", {
+          itens: Cart.count(),
+          valor: Cart.subtotal() + (frete || 0),
+          peso: Number(pesoCarrinho().toFixed(3)),
+          uf: uf ? uf.toUpperCase() : null,
+        });
       }
       const url = "https://wa.me/" + CURI.whatsapp + "?text=" + encodeURIComponent(montarMensagem());
       window.open(url, "_blank", "noopener");

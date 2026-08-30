@@ -20,6 +20,9 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="icon" href="assets/brand/selo-curicaca.svg" type="image/svg+xml">
 <script src="js/store.js" defer></script>
+<script src="js/supabase-config.js" defer></script>
+<script src="js/analytics.js" defer></script>
+<script src="js/conteudo.js" defer></script>
 <script src="js/cart.js" defer></script>
 <script src="js/site.js" defer></script>
 </head>
@@ -31,7 +34,7 @@
   <section class="hero" style="background-image:url('assets/img/hospedagem-05-amanhecer.jpg')">
     <div class="hero-content">
       <span class="script">feito à mão</span>
-      <h1>Mel da floresta viva</h1>
+      <h1 data-texto="mel_titulo">Mel da floresta viva</h1>
       <p>Multifloral, de safra única, da nossa Mata Atlântica</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="#leve-um-pote" style="border-color:var(--creme)">Leve um pote</a>
@@ -121,7 +124,7 @@
       <div>
         <span class="tag">o ano da mata</span>
         <h2 class="h2">Cada florada, um mel diferente</h2>
-        <p class="lead">Não plantamos monocultura para as abelhas: elas escolhem o que está florido na mata. Por isso o mel muda de cor, aroma e sabor a cada safra — mais claro e floral no início do verão, mais escuro e encorpado depois das floradas tardias. É o retrato líquido de um ano da floresta.</p>
+        <p class="lead" data-texto="mel_florada_texto">Não plantamos monocultura para as abelhas: elas escolhem o que está florido na mata. Por isso o mel muda de cor, aroma e sabor a cada safra — mais claro e floral no início do verão, mais escuro e encorpado depois das floradas tardias. É o retrato líquido de um ano da floresta.</p>
       </div>
     </div>
   </section>
@@ -133,10 +136,10 @@
       <div class="ficha">
         <h3>Safra atual</h3>
         <dl>
-          <dt>Florada</dt><dd>Silvestre de verão</dd>
-          <dt>Coleta</dt><dd>Março</dd>
+          <dt>Florada</dt><dd data-texto="mel_safra_florada">Silvestre de verão</dd>
+          <dt>Coleta</dt><dd data-texto="mel_safra_coleta">Março</dd>
           <dt>Área</dt><dd>Mata recuperada · Estrada Rio do Júlio</dd>
-          <dt>Lote</dt><dd>#00</dd>
+          <dt>Lote</dt><dd data-texto="mel_safra_lote">#00</dd>
           <dt>Envase</dt><dd>À mão, por Alexandre</dd>
         </dl>
       </div>

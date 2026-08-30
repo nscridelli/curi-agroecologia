@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /carrinho.html
+Disallow: /admin/
 
 Sitemap: https://curibiodiversidade.com.br/sitemap.xml

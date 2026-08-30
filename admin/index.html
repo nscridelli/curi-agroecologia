@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin — Curi Biodiversidade</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin.css">
+<link rel="icon" href="../assets/brand/selo-curicaca.svg" type="image/svg+xml">
+</head>
+<body>
+
+<!-- ===================== LOGIN ===================== -->
+<div id="tela-login" class="login-wrap">
+  <form class="login-card" id="form-login">
+    <img src="../assets/brand/selo-curicaca.svg" alt="" class="login-selo">
+    <h1>Curi <span>Biodiversidade</span></h1>
+    <p class="login-sub">Painel de administração</p>
+    <label class="campo">E-mail
+      <input type="email" id="login-email" autocomplete="username" required>
+    </label>
+    <label class="campo">Senha
+      <input type="password" id="login-senha" autocomplete="current-password" required>
+    </label>
+    <button class="btn btn-primary btn-block" type="submit" id="btn-entrar">Entrar</button>
+    <p class="erro" id="login-erro"></p>
+  </form>
+</div>
+
+<!-- ===================== APP ===================== -->
+<div id="app" hidden>
+  <header class="topo">
+    <div class="topo-in">
+      <a class="marca" href="../index.html" target="_blank" rel="noopener">
+        Curi <small>admin</small>
+      </a>
+      <nav class="abas">
+        <button data-aba="painel" class="ativo">Painel</button>
+        <button data-aba="produtos">Produtos</button>
+        <button data-aba="textos">Textos</button>
+        <button data-aba="config">Configurações</button>
+      </nav>
+      <div class="topo-dir">
+        <span class="quem" id="quem"></span>
+        <button class="btn btn-ghost" id="btn-senha">Trocar senha</button>
+        <button class="btn btn-ghost" id="btn-sair">Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="conteudo">
+
+    <!-- ---------- PAINEL ---------- -->
+    <section id="aba-painel">
+      <div class="secao-topo">
+        <h2>Como o site está indo</h2>
+        <div class="periodo">
+          <button data-dias="7">7 dias</button>
+          <button data-dias="30" class="ativo">30 dias</button>
+          <button data-dias="90">90 dias</button>
+        </div>
+      </div>
+
+      <div class="cards" id="cards-kpi"></div>
+
+      <div class="bloco">
+        <h3>Do visitante ao pedido</h3>
+        <p class="dica">Cada etapa conta pessoas diferentes na mesma visita. A queda entre uma etapa e outra mostra onde o site perde gente.</p>
+        <div id="funil"></div>
+      </div>
+
+      <div class="bloco">
+        <h3>Movimento por dia</h3>
+        <div id="grafico"></div>
+      </div>
+
+      <div class="duas">
+        <div class="bloco"><h3>Páginas mais vistas</h3><div id="tab-paginas"></div></div>
+        <div class="bloco"><h3>Produtos mais adicionados</h3><div id="tab-produtos"></div></div>
+      </div>
+      <div class="duas">
+        <div class="bloco"><h3>Pedidos por estado</h3><div id="tab-estados"></div></div>
+        <div class="bloco"><h3>De onde chegam</h3><div id="tab-origens"></div></div>
+      </div>
+      <div class="bloco"><h3>Celular ou computador</h3><div id="tab-dispositivos"></div></div>
+    </section>
+
+    <!-- ---------- PRODUTOS ---------- -->
+    <section id="aba-produtos" hidden>
+      <div class="secao-topo">
+        <h2>Produtos da loja</h2>
+        <p class="dica">O que você salvar aqui aparece no site em segundos, sem precisar publicar nada.</p>
+      </div>
+      <div id="lista-produtos"></div>
+    </section>
+
+    <!-- ---------- TEXTOS ---------- -->
+    <section id="aba-textos" hidden>
+      <div class="secao-topo">
+        <h2>Textos do site</h2>
+        <p class="dica">Cada campo diz em que página ele aparece.</p>
+      </div>
+      <div id="lista-textos"></div>
+    </section>
+
+    <!-- ---------- CONFIG ---------- -->
+    <section id="aba-config" hidden>
+      <div class="secao-topo">
+        <h2>Configurações</h2>
+        <p class="dica">Contato, frete e pesos usados no cálculo do carrinho.</p>
+      </div>
+      <div id="lista-config"></div>
+      <div class="bloco">
+        <h3>Frete base por estado</h3>
+        <p class="dica">Valor da primeira faixa (até 1 kg). Cada quilo extra soma o acréscimo configurado acima.</p>
+        <div class="grade-frete" id="grade-frete"></div>
+        <button class="btn btn-primary" id="btn-salvar-frete">Salvar tabela de frete</button>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="aviso" id="aviso"></div>
+
+<script type="module" src="admin.js"></script>
+</body>
+</html>

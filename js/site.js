@@ -152,10 +152,15 @@ function productCard(p) {
   </article>`;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   renderHeader();
   renderFooter();
   renderWaFloat();
+  Cart.refreshBadge();
+
+  // Espera o conteúdo do admin (com timeout curto). Se falhar, segue com
+  // os valores embutidos em store.js — o site nunca fica esperando.
+  try { await conteudoPronto; Conteudo.pintarTextos(); } catch {}
   Cart.refreshBadge();
 
   // preencher grades de produto marcadas com data-products
