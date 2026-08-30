@@ -151,7 +151,7 @@ tbody tr:last-child td{border-bottom:none}
 /* ---------- ajustes de celular ---------- */
 @media(max-width:620px){
   .topo-in{padding:10px 14px;gap:10px}
-  .abas{order:3;width:100%;gap:2px}
+  .abas{order:3;flex:1 0 100%;gap:3px}
   .abas button{padding:7px 11px;font-size:13px;flex:1}
   .quem{display:none}
   .conteudo{padding:20px 14px 60px}
